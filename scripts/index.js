@@ -1,4 +1,4 @@
-import {radioPlayerInit} from './radioPlayer.js';
+import radioPlayerInit from './radioPlayer.js';//export default without breakets
 import {audioPlayerInit} from './audioPlayer.js';
 import {videoPlayerInit} from './videoPlayer.js';
 
