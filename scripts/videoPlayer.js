@@ -5,8 +5,11 @@ export const videoPlayerInit = () => {
         videoButtonStop = document.querySelector('.video-button__stop'),
         videoTimePassed = document.querySelector('.video-time__passed'),
         videoProgress = document.querySelector('.video-progress'),
-        videoTimeTotal = document.querySelector('.video-time__total');
+        videoTimeTotal = document.querySelector('.video-time__total'),
+        videoVolume = document.querySelector('.video-volume');
 
+
+  videoPlayer.volume = videoVolume.value / 100;
   //функции
   const toggleIcon = () => {
     if (videoPlayer.paused) {
@@ -71,10 +74,14 @@ export const videoPlayerInit = () => {
 
 
   //положение указателя изменяет текущее время видео
-  videoProgress.addEventListener('change', () => {
+  videoProgress.addEventListener('input', () => {
     const duration = videoPlayer.duration;
     const value = videoProgress.value;
 
     videoPlayer.currentTime = (value * duration) / 100;
+  });
+
+  videoVolume.addEventListener('input', () => {
+    videoPlayer.volume = videoVolume.value / 100; //максимальная громкость видеоплеера равна 1
   })
 };
